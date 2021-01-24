@@ -1,6 +1,9 @@
 # InvoiceManager
 
-Hello, I am programmer and freelancer Martin Zaloga and this is my simple web project for demonstration what I can do in one manday. This simple project is done in asp.net core MVC using Entity Framework core. For more informations about me and next my references please visit web site zaloga.cz.
+Hello, I am programmer and freelancer Martin Zaloga and this is my simple web project for demonstration what I can do in one manday.
+This simple project is done in asp.net core MVC using Entity Framework core.
+This project is running on http://invoice-manager.site/.
+For more informations about me and next my references please visit web site https://zaloga.cz/.
 
 # Original request:
 Create a simple ASP.NET Core MVC application in C# to manage invoices in any database system. The application should have the following features:
