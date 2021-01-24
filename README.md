@@ -15,36 +15,57 @@ Another part of the application is to create a simple API. Access to API should 
 getting collection of unpaid invoices,
 paying invoice (changing status to paid),
 editing invoice (PATCH request).
-My proposed solution
 
-# Model for Invoice:
+# My proposed solution
+
+Model for Invoice:
 
 int Id PK (not null)
+
 int InvoiceNumber (not null)
+
 string Supplier (not null)
+
 string Customer (not null)
+
 string InvoiceSubject (not null)
+
 string PayMethod (not null)
+
 string BankAccountNumber (null)
+
 DateTime CreatedDate (not null)
+
 DateTime PaydDate (not null)
+
 DateTime DueDate (not null)
+
 Model for Invoice item:
 
 int Id PK (not null)
+
 string InvoiceItemSubject (not null)
+
 int Price (not null)
+
 int InvoiceId FK (not null)
+
 Web:
 
 CRUD and list of invoices
+
 CRUD of invoice items
+
 API:
 
 getting collection of (unpaid) invoices
+
 paying invoice (changing PaydDate from null to current date and time)
+
 editing invoice
+
 DB:
 
 as DB storage is used MSSQL
+
 as ORM is used Entity Framework core
