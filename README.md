@@ -1,6 +1,6 @@
 # InvoiceManager
 
-Hello, I am programmer and freelancer Martin Zaloga and this is my simple web project for demonstration what I can do in two man-day including analysis, frontend and backend development, testing and debuging, hosting setting, github setting and deployment to server. This simple project is done in asp.net core MVC using Entity Framework core. Souce codes of this project can be found HERE. For more informations about me and next my references please visit my website zaloga.cz.
+Hello, I am programmer and freelancer Martin Zaloga and this is my simple web project for demonstration what I can do in two man-days including analysis, frontend and backend development, testing and debuging, hosting setting, github setting and deployment to server. This simple project is done in asp.net core MVC using Entity Framework core. Souce codes of this project can be found HERE. For more informations about me and next my references please visit my website zaloga.cz.
 
 
 # Original request
