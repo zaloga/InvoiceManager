@@ -1,0 +1,120 @@
+﻿@model IEnumerable<Invoice>
+
+@{
+    ViewData["Title"] = "Invoices";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">Create New</a>
+</p>
+
+@if (Model == null || Model.Count() == 0)
+{
+    <div class="alert alert-warning">
+        No invoice here
+    </div>
+}
+else
+{
+    <table class="table table-hover">
+        <thead class="thead-light">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.InvoiceNumber)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Supplier)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Customer)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.InvoiceSubject)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PayMethod)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BankAccountNumber)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CreatedDate)
+                </th>
+                <th>
+                    Items count
+                </th>
+                <th>
+                    Total price
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PaidDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DueDate)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Invoice item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.InvoiceNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Supplier)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Customer)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.InvoiceSubject)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PayMethod)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BankAccountNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreatedDate)
+                    </td>
+                    <td>
+                        @item.GetInvoiceItemsCount()
+                    </td>
+                    <td>
+                        @item.GetTotalPrice()
+                    </td>
+                    <td>
+                        @if (item.GetInvoiceIsPaid())
+                        {
+                            @Html.DisplayFor(modelItem => item.PaidDate)
+                        }
+                        else 
+                        {
+                            <span>Not paid</span>
+                        }
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DueDate)
+                    </td>
+                    <td>
+                        @if (item.GetInvoiceIsPaid())
+                        {
+                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-info">Details</a>
+                        }
+                        else
+                        {
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-primary mr-2 mb-2">Edit</a>
+                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-info mr-2 mb-2">Details</a>
+                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger mr-2 mb-2">Delete</a>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

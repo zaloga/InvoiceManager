@@ -1,0 +1,107 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+
+    <div class="alert alert-info" style="font-size:1.2rem">
+        Hello, <strong>I am programmer and freelancer Martin Zaloga and this is my simple web project for demonstration what I can do in two man-days</strong> (including analysis, frontend and backend development, testing and debuging, hosting setting and deployment to server).
+        This simple project is done in asp.net core MVC using Entity Framework core. Souce codes of this project can be found <a href="https://github.com/zaloga/InvoiceManager">HERE</a>. For more informations about me and next my references please visit my website <strong><a href="https://zaloga.cz/">Zaloga CZ</a></strong>.
+    </div>
+</div>
+
+<div>
+    <h2>Original request</h2>
+    <div>
+        <p>
+            Create a simple ASP.NET Core MVC application in C# to manage invoices in any database system.
+            The application should have the following features:
+        </p>
+        <ul>
+            <li>creating/editing an invoice,</li>
+            <li>adding/removing invoice items.</li>
+        </ul>
+    </div>
+    <div>
+        <p>
+            Another part of the application is to create a simple API. Access to API should be restricted by a secret key which is sent as a header value in the request.
+            Please prepare 3 endpoints which have following functionality:
+        </p>
+        <ul>
+            <li>getting collection of unpaid invoices,</li>
+            <li>paying invoice (changing status to paid),</li>
+            <li>editing invoice (PATCH request).</li>
+        </ul>
+    </div>
+</div>
+
+<div>
+    <h2>My proposed solution</h2>
+    <div>
+        <p>
+            <strong>Model for Invoice:</strong>
+        </p>
+        <ul>
+            <li>int Id PK (not null)</li>
+            <li>int InvoiceNumber (not null)</li>
+            <li>string Supplier (not null)</li>
+            <li>string Customer (not null)</li>
+            <li>string InvoiceSubject (not null)</li>
+            <li>string PayMethod (not null)</li>
+            <li>string BankAccountNumber (null)</li>
+            <li>DateTime CreatedDate (not null)</li>
+            <li>DateTime PaidDate (not null)</li>
+            <li>DateTime DueDate (not null)</li>
+        </ul>
+    </div>
+    <div>
+        <p>
+            <strong>Model for Invoice item:</strong>
+        </p>
+        <ul>
+            <li>int Id PK (not null)</li>
+            <li>string InvoiceItemSubject (not null)</li>
+            <li>int Price (not null)</li>
+            <li>int InvoiceId FK (not null)</li>
+        </ul>
+    </div>
+    <div>
+        <p>
+            <strong>Web:</strong>
+        </p>
+        <ul>
+            <li>CRUD and list of invoices</li>
+            <li>CRUD and list of invoice items on invoice detail</li>
+        </ul>
+    </div>
+    <div>
+        <p>
+            <strong>API:</strong>
+        </p>
+        <ul>
+            <li>getting collection of (unpaid) invoices</li>
+            <li>paying invoice (changing PaidDate from null to current date and time)</li>
+            <li>editing invoice</li>
+        </ul>
+    </div>
+    <div>
+        <p>
+            <strong>DB:</strong>
+        </p>
+        <ul>
+            <li>as DB storage is used MSSQL</li>
+            <li>as ORM is used Entity Framework core</li>
+        </ul>
+    </div>
+    <div>
+        <p>
+            <strong>Behavior:</strong>
+        </p>
+        <ul>
+            <li>In creating and editing invoice and invoice items validate fields (its data types, min values, lengths, if are required...).</li>
+            <li>When invoice has no invoice item -&gt; do not allow to pay it.</li>
+            <li>When invoice is paid -&gt; do not allow to change it.</li>
+        </ul>
+    </div>
+</div>
