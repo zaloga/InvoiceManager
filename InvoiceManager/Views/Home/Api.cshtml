@@ -1,0 +1,39 @@
+﻿@{
+    ViewData["Title"] = "Api";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="alert alert-info mb-2" style="font-size:1.2rem;">
+    Api provided by this web is <strong>secured by secret key</strong> which must be sent as header value in each request.
+    Otherwise you will obtain message <strong><i>"Your secret key is not correct"</i></strong>.
+    The secret key in this example api is <strong>SecretKey</strong> and its value must be <strong>ExampleSecretKeyValue</strong>.
+</div>
+
+<h2>Examples of requests</h2>
+
+<div style="font-size:1.2rem;">
+    <ul>
+        <li class="mb-3">
+            For getting collection of (unpaid) invoices use Get request like:<br>
+            <strong>GET https://invoice-manager.site/api/Invoices?bOnlyUnpaid=true</strong>
+        </li>
+        <li class="mb-3">
+            For editing invoice use Patch request like:<br>
+            <strong>PATCH https://invoice-manager.site/api/Invoices/1</strong><br>
+            {
+            "invoiceNumber": "20210126090412",
+            "supplier": "Supplier XXX",
+            "customer": "Customer YYY",
+            "invoiceSubject": "Services and products ABC",
+            "payMethod": "bank transfer",
+            "bankAccountNumber": "123456789/1234",
+            "dueDate": "2022-01-01T00:00:00"
+            }
+        </li>
+        <li class="mb-3">
+            For paying invoice use Post request like:<br>
+            <strong>POST https://invoice-manager.site/api/Invoices/Pay/1</strong>
+        </li>
+    </ul>
+</div>
